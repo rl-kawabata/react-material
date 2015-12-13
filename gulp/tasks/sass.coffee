@@ -3,12 +3,11 @@ using = require('gulp-using')
 plumber = require('gulp-plumber')
 sass = require('gulp-sass')
 concat = require("gulp-concat")
-minify = require('gulp-minify')
-config = require('../config').cssBuild
+config = require('../config').sass
 bundleLogger = require('../util/bundleLogger')
 handleErrors = require('../util/handleErrors')
 
-gulp.task 'cssBuildPro', ->
+gulp.task 'sass', ->
 
   build = ->
     bundleLogger.start config.outputName
@@ -18,7 +17,6 @@ gulp.task 'cssBuildPro', ->
         .pipe using()
         .pipe sass()
         .pipe concat(config.outputName)
-        .pipe minify()
         .pipe gulp.dest(config.dest)
         .on 'end', reportFinished
 

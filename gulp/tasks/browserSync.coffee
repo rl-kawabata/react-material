@@ -1,9 +1,11 @@
+browserSync = require('browser-sync')
 gulp = require('gulp')
 config = require('../config').browserSync
-browserSync = require('browser-sync')
 
-gulp.task 'browserSync', () ->
+gulp.task 'browserSync', [ 'build' ], ->
   browserSync config
-  gulp.watch config.srcJsFiles, ['jsBuildDev']
-  gulp.watch config.srcCssFiles, ['cssBuildDev']
-  gulp.watch config.destFiles, browserSync.reload
+  return
+
+gulp.task 'browserReload', ->
+  browserSync.reload()
+  return

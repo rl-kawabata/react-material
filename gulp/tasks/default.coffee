@@ -1,3 +1,3 @@
 gulp = require('gulp')
 
-gulp.task 'default', [ 'browserSync' ]
+gulp.task 'default', [ 'watch' ]
