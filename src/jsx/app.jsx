@@ -1,13 +1,11 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import Main from './components/main';
 
-var HelloMessage = React.createClass({
-  render: function() {
-    return <h1>Hello {this.props.name}！</h1>;
-  }
-});
+injectTapEventPlugin();
 
 ReactDOM.render(
-  <HelloMessage name="World" />,
+  <Main name="World" />,
   document.getElementById('container')
 );
