@@ -9,11 +9,14 @@ import {
 import Master from './components/master';
 // ホーム
 import Home from './components/pages/home';
+// メモ
+import Memo from './components/pages/memo';
 
 
 const AppRoutes = (
   <Route path="/" component={Master}>
     <Route path="main" component={Home} />
+    <Route path="memo" component={Memo} />
     <IndexRoute component={Home}/>
   </Route>
 );
