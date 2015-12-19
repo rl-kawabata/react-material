@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Router} from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import Main from './components/main';
+import AppRoutes from './app-routes';
 
 injectTapEventPlugin();
 
 ReactDOM.render(
-  <Main name="World" />,
-  document.getElementById('container')
+  <Router>
+    {AppRoutes}
+  </Router>
+  ,document.getElementById('app')
 );
