@@ -27,6 +27,7 @@
     "gulp-uglify": "^1.5.1",
     "gulp-using": "^0.1.0",
     "gulp-util": "^3.0.7",
+    "history": "^1.13.1",
     "pretty-hrtime": "^1.0.1",
     "require-dir": "^0.3.0",
     "vinyl-buffer": "^1.0.0",
