@@ -1,12 +1,11 @@
 require 'webrick'
 require 'json'
 
-port = 3000
-root = File.expand_path '../public'
+port = 3001
 
 puts "Server started: http://localhost:#{port}/"
 
-server = WEBrick::HTTPServer.new Port: port, DocumentRoot: root
+server = WEBrick::HTTPServer.new Port: port
 
 server.mount_proc '/api/comments' do |req, res|
   comments = JSON.parse(File.read('./comments.json', encoding: 'UTF-8'))
