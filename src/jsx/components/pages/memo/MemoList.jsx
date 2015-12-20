@@ -1,5 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  Table,
+  TableHeader,
+  TableHeaderColumn,
+  TableBody,
+  TableRow,
+  TableRowColumn
+} from 'material-ui';
 import MemoAction from '../../../actions/MemoAction'
 import MemoStore from '../../../stores/MemoStore'
 import Memo from './Memo'
@@ -21,9 +29,18 @@ const MemoList = React.createClass({
   render: function() {
     let memos = this.state.memos.map(this._getMemoDom);
     return (
-      <div>
-        {memos}
-      </div>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderColumn>ID</TableHeaderColumn>
+            <TableHeaderColumn>名前</TableHeaderColumn>
+            <TableHeaderColumn>本文</TableHeaderColumn>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {memos}
+        </TableBody>
+      </Table>
     )
   },
 
@@ -34,7 +51,7 @@ const MemoList = React.createClass({
 
   _getMemoDom: function(memo) {
     return (
-      <Memo name={memo.name} text={memo.text} key={memo.id} />
+      <Memo name={memo.name} text={memo.text} id={memo.id} key={memo.id} />
     )
   }
 });

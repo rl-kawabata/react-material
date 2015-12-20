@@ -1,12 +1,17 @@
 import React from 'react';
+import {
+  TableRow,
+  TableRowColumn
+} from 'material-ui';
 
 const Memo = React.createClass({
   render: function() {
     return (
-      <div>
-        <h1>{this.props.name}</h1>
-        <p>{this.props.text}</p>
-      </div>
+      <TableRow>
+        <TableRowColumn>{this.props.id}</TableRowColumn>
+        <TableRowColumn>{this.props.name}</TableRowColumn>
+        <TableRowColumn>{this.props.text}</TableRowColumn>
+      </TableRow>
     );
   }
 });
