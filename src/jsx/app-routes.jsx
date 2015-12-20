@@ -10,9 +10,9 @@ import Master from './components/master';
 // サイドメニュー
 import Sidemenu from './components/sidemenu';
 // ホーム
-import HomePage from './components/pages/HomePage';
+import HomePage from './components/pages/home/HomePage';
 // メモ
-import MemoPage from './components/pages/MemoPage';
+import MemoPage from './components/pages/memo/MemoPage';
 
 
 const AppRoutes = (

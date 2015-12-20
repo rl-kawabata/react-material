@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Dispatcher from 'flux/lib/Dispatcher';
 import AppCanvas from 'material-ui/lib/app-canvas';
-import MemoAction from '../../actions/MemoAction'
-import MemoStore from '../../stores/MemoStore'
+import MemoAction from '../../../actions/MemoAction'
+import MemoStore from '../../../stores/MemoStore'
 
 const MemoList = React.createClass({
   getInitialState: function() {
