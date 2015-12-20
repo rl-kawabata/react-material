@@ -8,7 +8,7 @@ const Navbar = React.createClass({
   render() {
     return (
       <AppBar
-      title="勤怠管理アプリ"
+      title="メモアプリ"
       onLeftIconButtonTouchTap={this._handleMenuTouch} />
     );
   }
