@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog } from 'material-ui';
+import { Dialog, TextField } from 'material-ui';
 
 /**
  * メモダイアログ
@@ -9,23 +9,29 @@ import { Dialog } from 'material-ui';
  */
 const MemoDialog = React.createClass({
   render: function() {
-    let isOpen = this.props.isOpen;
-    let onSubmited = this.props.onSubmited;
-    let onCancelled = this.props.onCancelled;
     let actions = [
       {text: 'キャンセル'},
-      {text: '登録', onTouchTap: onSubmited, ref: 'submit'},
+      {text: '登録', onTouchTap: this._handleOnTouchTap, ref: 'submit'},
     ];
     return (
       <Dialog
         title="メモ登録"
         actions={actions}
         actionFocus="submit"
-        open={isOpen}
-        onRequestClose={onCancelled}>
-        The actions in this window are created from the json that's passed in.
+        open={this.props.isOpen}
+        onRequestClose={this.props.onCancelled}>
+        <TextField ref="name" hintText="名前" /><br/>
+        <TextField ref="text" hintText="本文" multiLine={true} />
       </Dialog>
     );
+  },
+
+  _handleOnTouchTap: function() {
+    let memo = {
+      name: this.refs.name.getValue(),
+      text: this.refs.name.getValue()
+    }
+    this.props.onSubmited(memo);
   }
 });
 

@@ -12,9 +12,18 @@ puts "Server started: http://localhost:#{port}/"
 server = WEBrick::HTTPServer.new Port: port
 
 server.mount_proc '/api/comments' do |req, res|
+  # always return json
+  res['Content-Type'] = 'application/json'
+  res['Cache-Control'] = 'no-cache'
+  # Access-Control-Allow-Originの制御外す
+  res['Access-Control-Allow-Origin'] = "*"
+
   comments = JSON.parse(File.read('./comments.json', encoding: 'UTF-8'))
 
-  if req.request_method == 'POST'
+  case req.request_method
+  when 'GET'
+    res.body = JSON.generate(comments)
+  when 'POST'
     # Assume it's well formed
     comment = { id: (Time.now.to_f * 1000).to_i }
     req.query.each do |key, value|
@@ -26,14 +35,8 @@ server.mount_proc '/api/comments' do |req, res|
       JSON.pretty_generate(comments, indent: '    '),
       encoding: 'UTF-8'
     )
+    res.body = JSON.generate(comment)
   end
-
-  # always return json
-  res['Content-Type'] = 'application/json'
-  res['Cache-Control'] = 'no-cache'
-  # Access-Control-Allow-Originの制御外す
-  res['Access-Control-Allow-Origin'] = "*"
-  res.body = JSON.generate(comments)
 end
 
 trap('INT') { server.shutdown }

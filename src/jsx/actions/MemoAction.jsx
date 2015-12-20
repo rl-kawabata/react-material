@@ -9,10 +9,9 @@ const TodoAction = {
       dataType: 'json',
       cache: false,
       success: function(data) {
-        console.log(data);
         AppDispatcher.dispatch({
           actionType: AppConstants.MEMO_LOAD_MEMO,
-          text: data.data
+          data: data
         });
         return
       },
@@ -22,10 +21,24 @@ const TodoAction = {
       }
     })
   },
-  create: function(text) {
-    AppDispatcher.dispatch({
-      actionType: AppConstants.MEMO_CREATE,
-      text: text
+  create: function(memo) {
+    $.ajax({
+      url: "http://localhost:3001/api/comments",
+      type: 'POST',
+      dataType: 'json',
+      cache: false,
+      data: memo,
+      success: function(data) {
+        AppDispatcher.dispatch({
+          actionType: AppConstants.MEMO_CREATE,
+          data: data
+        });
+        return
+      },
+      error: function(xhr, status, err) {
+        console.error("http://localhost:3001/api/comments", status, err.toString());
+        return
+      }
     });
   }
 };

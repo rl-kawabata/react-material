@@ -5,15 +5,15 @@ import {
   RaisedButton,
   Dialog
 } from 'material-ui';
+import MemoAction from '../../../actions/MemoAction'
 import Memo from './Memo'
 import MemoList from './MemoList'
-import MemoForm from './MemoForm'
 import MemoDialog from './MemoDialog'
 
 /**
  * @params isOpenMemoDialog ダイアログ表示フラグ
  */
-const state = {
+const states = {
   isOpenMemoDialog: false
 }
 
@@ -22,7 +22,7 @@ const state = {
  */
 const MemoPage = React.createClass({
   getInitialState: function() {
-    return state;
+    return states;
   },
 
   render: function() {
@@ -35,7 +35,6 @@ const MemoPage = React.createClass({
           onSubmited={this._handleOnDialogSubmit}
           onCancelled={this._handleOnDialogCancel}/>
         <MemoList />
-        <MemoForm />
       </AppCanvas>
     );
   },
@@ -44,7 +43,8 @@ const MemoPage = React.createClass({
     this.setState({ isOpenMemoDialog: true });
   },
 
-  _handleOnDialogSubmit: function() {
+  _handleOnDialogSubmit: function(memo) {
+    MemoAction.create(memo);
     this.setState({ isOpenMemoDialog: false });
   },
 

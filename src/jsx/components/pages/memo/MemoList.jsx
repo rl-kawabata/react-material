@@ -28,6 +28,7 @@ const MemoList = React.createClass({
   },
 
   _onChange: function() {
+    let memos = MemoStore.getAll();
     this.setState({memos: MemoStore.getAll()});
   },
 
