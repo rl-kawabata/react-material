@@ -58,7 +58,7 @@ const MemoForm = React.createClass({
   }
 });
 
-const Memo = React.createClass({
+const MemoPage = React.createClass({
   render: function() {
     return (
       <AppCanvas>
@@ -69,4 +69,4 @@ const Memo = React.createClass({
   }
 });
 
-export default Memo;
+export default MemoPage;

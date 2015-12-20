@@ -1,7 +1,7 @@
 import React from 'react'
 import AppCanvas from 'material-ui/lib/app-canvas';
 
-const Home = React.createClass({
+const HomePage = React.createClass({
   render: function() {
     return (
       <AppCanvas>
@@ -11,4 +11,4 @@ const Home = React.createClass({
   }
 });
 
-export default Home;
+export default HomePage;

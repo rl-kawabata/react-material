@@ -10,18 +10,18 @@ import Master from './components/master';
 // サイドメニュー
 import Sidemenu from './components/sidemenu';
 // ホーム
-import Home from './components/pages/home';
+import HomePage from './components/pages/HomePage';
 // メモ
-import Memo from './components/pages/memo';
+import MemoPage from './components/pages/MemoPage';
 
 
 const AppRoutes = (
   <Route path="/" component={Master}>
     <Route path="/" component={Sidemenu}>
-      <Route path="home" component={Home} />
-      <Route path="memo" component={Memo} />
+      <Route path="home" component={HomePage} />
+      <Route path="memo" component={MemoPage} />
     </Route>
-    <IndexRoute component={Home}/>
+    <IndexRoute component={HomePage}/>
   </Route>
 );
 
