@@ -1,5 +1,9 @@
 require 'webrick'
 require 'json'
+# sudo gem install pry
+require 'pry'
+# sudo gem install pry-nav
+require 'pry-nav'
 
 port = 3001
 
@@ -27,6 +31,8 @@ server.mount_proc '/api/comments' do |req, res|
   # always return json
   res['Content-Type'] = 'application/json'
   res['Cache-Control'] = 'no-cache'
+  # Access-Control-Allow-Originの制御外す
+  res['Access-Control-Allow-Origin'] = "*"
   res.body = JSON.generate(comments)
 end
 

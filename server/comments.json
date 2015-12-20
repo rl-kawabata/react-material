@@ -1,23 +1,17 @@
 [
     {
-        "id": 1388534400000,
-        "author": "Pete Hunt",
-        "text": "Hey there!"
+        "id": 1,
+        "name": "テストA",
+        "text": "これはテストA"
     },
     {
-        "id": 1420070400000,
-        "author": "Paul O’Shannessy",
-        "text": "React is *great*!"
+        "id": 2,
+        "name": "テストB",
+        "text": "これはテストB"
     },
     {
-        "id": "1449910536148",
-        "author": "shingo",
-        "text": "test"
-    },
-    {
-        "id": 1449910541940,
-        "author": "te",
-        "text": "sdf",
-        "id": "1449910541933"
+        "id": 3,
+        "name": "テストC",
+        "text": "これはテストC"
     }
 ]

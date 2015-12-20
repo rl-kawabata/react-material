@@ -7,15 +7,12 @@ import MemoStore from '../../stores/MemoStore'
 
 const MemoList = React.createClass({
   getInitialState: function() {
-    return {
-      memos: MemoStore.getAll()
-    };
+    MemoAction.loadMemo();
+    return { memos: [] }
   },
   componentDidMount: function() {
     let self = this;
-    MemoStore.addChangeListener(function () {
-      self.setState({memos: MemoStore.getAll()});
-    });
+    MemoStore.onChangeListener(this._onChange);
   },
   render: function() {
     let memos = this.state.memos.map(function(memo) {
@@ -28,7 +25,10 @@ const MemoList = React.createClass({
         {memos}
       </div>
     )
-   }
+  },
+  _onChange: function() {
+    this.setState({memos: MemoStore.getAll()});
+  }
 });
 
 const Memos = React.createClass({

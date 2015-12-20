@@ -17,11 +17,14 @@ const MemoStore = ASSIGN({}, EventEmitter.prototype, {
   emitChange: function () {
     this.emit(CHANGE_EVENT);
   },
-  addChangeListener: function (callback) {
+  onChangeListener: function (callback) {
     this.on(CHANGE_EVENT, callback);
   },
   dispatcherIndex: AppDispatcher.register(function (payload) {
     switch (payload.actionType) {
+      case AppConstants.MEMO_LOAD_MEMO:
+        MemoStore.emitChange();
+        break;
       case AppConstants.MEMO_CREATE:
         MemoStore.emitChange();
         break;
